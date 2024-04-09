@@ -1,11 +1,12 @@
 // src/Form.jsx
 import React, { useState } from "react";
 
-function Form() {
+function Form(props) {
   const [person, setPerson] = useState({
     name: "",
     job: ""
   });
+  <input type="button" value="Submit" onClick={submitForm} />
 }
 // Add the following code to src/Form.jsx
 function handleChange(event) {
@@ -33,6 +34,10 @@ function handleChange(event) {
           />
         </form>
       );
+  }
+  function submitForm() {
+    props.handleSubmit(person);
+    setPerson({ name: "", job: "" });
   }
   
 export default Form;
